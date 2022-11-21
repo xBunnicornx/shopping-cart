@@ -5,6 +5,15 @@ nav{
     background-color:blue;
     color: white;
 }
+
+.shop-item {
+    color: white;
+}
+
+.cart-icon {
+    color: white;
+}
+
 .nav-link{
     width: 50%;
     display: flex;
