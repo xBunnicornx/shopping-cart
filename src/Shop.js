@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Cards from "./component/card";
+// import Cards from "./component/card";
 
 const list = [
   {
@@ -52,17 +52,22 @@ const list = [
   },
 ];
 
-function Shop() {
-  function handleClick(props) {
-    const cardItems = {
-      id: props.id,
-      name: props.name,
-      from: props.from,
-      price: props.price,
-      image: props.image,
-    };
-    props.onDataUpdate(cardItems);
+function Shop(props) {
+
+  console.log(props);
+
+  function handleClick(data) {
+    // const cardItems = {
+    //   id: data.id,
+    //   name: data.name,
+    //   from: data.from,
+    //   price: data.price,
+    //   image: data.image,
+    // };
+
+    props.onDataUpdate(data);
   }
+
   return (
     <div className="shop">
       {list.map((item) => (

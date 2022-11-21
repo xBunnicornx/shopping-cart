@@ -6,31 +6,31 @@ import Nav from "./Nav";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 
-
-
-
-
+const Home = () => {
+  return <div>Homepage</div>;
+};
 
 function App() {
   const [cart, setCart] = useState([]);
-  function CartItem(data) {
-    cart.push(data);
+
+  function onAddToCart(item) {
+    setCart([item, ...cart]);
   }
+
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Nav cart={cart} />
 
         <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/shop" onDataUpdate={CartItem} element={<Shop />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/shop" element={<Shop onDataUpdate={onAddToCart} />} />
+          <Route path="/cart" element={<Cart cart={cart} />} />
+          <Route path="/" element={<Home/>} />
         </Routes>
       </div>
     </Router>
   );
 }
-const Home = () => {
-  <div>Home Page</div>;
-};
+
+
 export default App;
